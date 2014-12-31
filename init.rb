@@ -1,4 +1,6 @@
 require 'redmine'
+require 'prototype-rails'
+
 require File.dirname(__FILE__) + '/lib/tracker_patch.rb'
 require File.dirname(__FILE__) + '/lib/issues_controller_patch.rb'
 require File.dirname(__FILE__) + '/lib/hooks.rb'
