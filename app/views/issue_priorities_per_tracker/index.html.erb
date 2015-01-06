@@ -1,3 +1,4 @@
+
 <h2><%=l(:label_issue_priorities_per_tracker)%></h2>
 
 <table class="list tracker-issue-priorities">
@@ -36,5 +37,11 @@
 </tbody>
 
 </table>
+
+<% content_for :header_tags do %>
+    <%= javascript_include_tag 'prototype.js', :plugin => 'redmine_prototype_js' %>
+    <%= javascript_include_tag 'prototype_ujs.js', :plugin => 'redmine_prototype_js' %>
+<% end %>
+
 
 
