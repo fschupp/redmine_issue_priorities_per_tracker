@@ -13,7 +13,7 @@ Redmine::Plugin.register :redmine_issue_priorities_per_tracker do
   url 'https://github.com/fschupp/redmine_issue_priorities_per_tracker'
   author_url 'https://github.com/fschupp'
   
-  requires_redmine_plugin :redmine_prototype_js, :version_or_higher => '0.0.1'
+  requires_redmine_plugin :redmine_prototype_js, :version_or_higher => '0.0.2'
   
   menu :admin_menu, :issue_priorities_per_tracker, { :controller => 'issue_priorities_per_tracker' }, :caption => :label_issue_priorities_per_tracker
 end
