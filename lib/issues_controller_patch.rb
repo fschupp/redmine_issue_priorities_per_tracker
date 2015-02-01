@@ -30,11 +30,17 @@ module IssuesControllerPatch
         @edit_allowed = User.current.allowed_to?(:edit_issues, @project)
         @priorities = @issue.tracker.issue_priorities
         @time_entry = TimeEntry.new(:issue => @issue, :project => @issue.project)
-        respond_to do |format|
-          format.html { render :template => 'issues/show' }
+        
+         respond_to do |format|
+          format.html {
+            retrieve_previous_and_next_issue_ids
+            render :template => 'issues/show'
+          }
           format.api
           format.atom { render :template => 'journals/index', :layout => false, :content_type => 'application/atom+xml' }
-          format.pdf  { send_data(issue_to_pdf(@issue), :type => 'application/pdf', :filename => "#{@project.identifier}-#{@issue.id}.pdf") }
+          format.pdf {  
+            send_file_headers! :type => 'application/pdf', :filename => "#{@project.identifier}-#{@issue.id}.pdf"
+          }
         end
       end
       
